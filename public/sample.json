@@ -1,0 +1,43 @@
+[
+  {
+    "picture": "https://i.ibb.co/JkbRH1G/pexels-noah-erickson-404280.jpg",
+    "name": "Bernadette Swanson",
+    "price": 3594.26,
+    "quantity": 103,
+    "suplierName": "Roslyn Carver",
+    "about": "Amet minim exercitation do ea est culpa et veniam. Ea proident non culpa nisi excepteur incididunt non in exercitation. Culpa officia Lorem dolore magna laboris. Velit proident elit voluptate incididunt veniam. Sunt eiusmod voluptate laboris deserunt incididunt Lorem est sint ad sint esse consectetur nostrud.\r\n"
+  },
+  {
+    "picture": "https://i.ibb.co/ChDNq7c/pexels-hasan-albari-1229861.jpg",
+    "name": "Laptops",
+    "price": 1390.19,
+    "quantity": 143,
+    "suplierName": "Phyllis Burch",
+    "about": "Proident consequat voluptate proident mollit enim esse quis voluptate et quis voluptate qui officia. Laboris tempor exercitation enim dolor enim sunt magna. Aliquip ea Lorem in duis proident ipsum. Sint deserunt pariatur cupidatat ex. Lorem dolor sit est incididunt ea voluptate eu sunt consequat cupidatat Lorem culpa consequat sint.\r\n"
+  },
+  {
+    "picture": "https://i.ibb.co/C24qqh4/pexels-julia-m-cameron-4144179.jpg",
+    "name": "VR",
+    "price": 1519.62,
+    "quantity": 217,
+    "suplierName": "Fran Grant",
+    "about": "Culpa duis magna commodo officia. Reprehenderit Lorem adipisicing elit voluptate qui minim enim ut sint nostrud laborum. Dolor aliquip quis deserunt Lorem pariatur qui fugiat. Do officia ipsum nostrud aliqua incididunt sint laborum nisi irure labore velit ad. Voluptate voluptate culpa irure nulla qui eiusmod officia voluptate id non anim ea nisi. Labore dolore eu ipsum et elit aliquip sit.\r\n"
+  },
+
+  {
+    "picture": "https://i.ibb.co/xmn0jy2/pexels-peter-fazekas-997130.jpg",
+    "name": "Drones",
+    "price": 1514.52,
+    "quantity": 219,
+    "suplierName": "Finch Owens",
+    "about": "Excepteur quis consequat id incididunt. Esse amet nostrud do qui ut minim pariatur enim adipisicing Lorem in elit. Nostrud labore nostrud magna voluptate id commodo mollit laborum dolore consectetur officia cillum laboris. Duis anim deserunt excepteur ipsum elit in Lorem. Ex aliquip in exercitation amet veniam occaecat.\r\n"
+  },
+  {
+    "picture": "https://i.ibb.co/ZMtMX5Q/pexels-pixabay-159220.jpg",
+    "name": "Microchip",
+    "price": 1568.59,
+    "quantity": 298,
+    "suplierName": "Elizabeth Coleman",
+    "about": "Proident et cillum ex non. Occaecat cillum sunt fugiat ullamco elit dolor culpa ex deserunt officia. Deserunt commodo ut qui est. Velit ut sunt ullamco dolor ipsum ex elit consectetur nulla ad id tempor culpa cillum.\r\n"
+  }
+]

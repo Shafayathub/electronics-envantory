@@ -11,15 +11,15 @@ const Banner = () => {
       <Carousel autoPlay infiniteLoop>
         <div>
           <img src={banner1} alt="" />
-          <p className="legend">Legend 1</p>
+          <p className="legend">Electronic Accessories</p>
         </div>
         <div>
           <img src={banner2} alt="" />
-          <p className="legend">Legend 2</p>
+          <p className="legend">Augmented Reality</p>
         </div>
         <div>
           <img src={banner3} alt="" />
-          <p className="legend">Legend 3</p>
+          <p className="legend">Micro Chipset</p>
         </div>
       </Carousel>
     </>

@@ -1,12 +1,13 @@
 import React from 'react';
+import Envantory from '../Envantory/Envantory';
 import Banner from './Banner';
 
 const Home = () => {
   return (
     <>
       <main className="max-w-screen-xl mx-auto">
-        <h1>Electronic Envantory Home</h1>
         <Banner></Banner>
+        <Envantory></Envantory>
       </main>
     </>
   );

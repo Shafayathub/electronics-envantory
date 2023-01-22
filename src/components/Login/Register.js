@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   useCreateUserWithEmailAndPassword,
-  useSendEmailVerification,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import auth from '../firebase/firebase.config';
@@ -11,33 +10,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-  const [updateProfile] = useUpdateProfile(auth);
-  const [sendEmailVerification] = useSendEmailVerification(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, error1] = useUpdateProfile(auth);
 
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const displayName = event.target.name.value;
     const photoURL = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const success = await sendEmailVerification();
-    if (success) {
-      toast('Check your email to verify');
-    }
-    await updateProfile(displayName, photoURL);
+
     await createUserWithEmailAndPassword(email, password);
+    await updateProfile(displayName, photoURL);
 
     event.target.reset();
+
+    toast('Check your email to verify');
   };
-  if (error) {
-    return <>{toast(error.message)}</>;
-  }
-  if (loading) {
-    return <p>Loading...</p>;
+
+  if (loading || updating) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <progress className="m-10 progress w-56"></progress>
+      </div>
+    );
   }
   if (user) {
-    return <>{toast(user.user.email)}</>;
+    return navigate('/');
   }
   return (
     <>
@@ -109,6 +109,7 @@ const Register = () => {
                   </Link>
                 </label>
               </div>
+              {(error || error1) && toast(error?.message)}
               <div className="form-control mt-6">
                 <input
                   className="btn btn-primary"

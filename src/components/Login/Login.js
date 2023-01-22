@@ -14,16 +14,16 @@ const Login = () => {
     const password = event.target.password.value;
     signInWithEmailAndPassword(email, password);
     event.target.reset();
-    navigate('/');
   };
-  if (error) {
-    return <>{toast(error.message)}</>;
-  }
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <progress className="m-10 progress w-56"></progress>
+      </div>
+    );
   }
   if (user) {
-    return <>{toast(user.user.email)}</>;
+    return navigate('/');
   }
   return (
     <>
@@ -76,6 +76,7 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
+              {error && toast(error?.message)}
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>

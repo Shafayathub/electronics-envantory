@@ -1,27 +1,35 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home/Home';
-import Nav from './components/Home/Nav';
-import Footer from './components/Home/Footer';
 import React from 'react';
+import Login from './components/Login/Login';
+import Main from './layout/Main';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home></Home>,
-    },
-    {
-      path: '/home',
-      element: <Home></Home>,
+      element: <Main></Main>,
+      children: [
+        {
+          path: '/',
+          element: <Home></Home>,
+        },
+        {
+          path: 'home',
+          element: <Home></Home>,
+        },
+        {
+          path: 'login',
+          element: <Login></Login>,
+        },
+      ],
     },
   ]);
   return (
-    <React.Fragment>
-      <Nav></Nav>
+    <>
       <RouterProvider router={router}></RouterProvider>
-      <Footer></Footer>
-    </React.Fragment>
+    </>
   );
 }
 

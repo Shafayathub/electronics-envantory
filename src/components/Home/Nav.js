@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
     <>
-      <div className="navbar bg-base-100 max-w-screen-xl mx-auto">
+      <div className="navbar bg-base-100 max-w-screen-xl mx-auto sticky top-0 z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -87,7 +88,9 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <Link to="/login" className="btn">
+            Get started
+          </Link>
         </div>
       </div>
     </>

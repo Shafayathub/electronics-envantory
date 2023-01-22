@@ -10,6 +10,7 @@ import Register from './components/Login/Register';
 import ManageEnvantory from './components/Envantory/ManageEnvantory';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/Login/RequireAuth';
+import UpdateProfile from './components/profile/UpdateProfile';
 
 function App() {
   const router = createBrowserRouter([
@@ -44,6 +45,10 @@ function App() {
         {
           path: 'register',
           element: <Register></Register>,
+        },
+        {
+          path: 'profile',
+          element: <UpdateProfile></UpdateProfile>,
         },
       ],
     },

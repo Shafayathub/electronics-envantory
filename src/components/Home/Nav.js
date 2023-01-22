@@ -1,7 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../firebase/firebase.config';
 
 const Nav = () => {
+  const [user] = useAuthState(auth);
+  console.log(user);
+  const logout = () => {
+    const agree = window.confirm('Are you sure?');
+    if (agree) {
+      signOut(auth);
+    }
+  };
   return (
     <>
       <div className="navbar bg-base-100 max-w-screen-xl mx-auto sticky top-0 z-10">
@@ -50,9 +61,35 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login/Register
-          </Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost rounded-full">
+                <div className="avatar online">
+                  <div className="w-12 rounded-full">
+                    <img
+                      src="https://i.ibb.co/3kgbGtt/MD-Shafayat-Islam.jpg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                <li>{user?.displayName}</li>
+                <li className="text-center">{user?.email}</li>
+                <li>
+                  <button className="btn" onClick={logout}>
+                    Log out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login" className="btn">
+              Login/Register
+            </Link>
+          )}
         </div>
       </div>
     </>

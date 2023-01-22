@@ -1,7 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth';
+import auth from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile] = useUpdateProfile(auth);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const displayName = event.target.name.value;
+    const photoURL = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    createUserWithEmailAndPassword(email, password);
+    updateProfile(displayName, photoURL);
+    event.target.reset();
+  };
+  if (error) {
+    return <>{toast(error.message)}</>;
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (user) {
+    return <>{toast(user.user.email)}</>;
+  }
   return (
     <>
       <div className="hero min-h-screen bg-base-200">
@@ -15,13 +45,26 @@ const Register = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
                   placeholder="Name"
                   className="input input-bordered"
                   required
@@ -33,6 +76,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -43,20 +87,27 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
                 />
-
-                <label className="label">
-                  <Link href="#" className="label-text-alt link link-hover">
-                    Send Verification mail
+                <label className="m-1 label-text-alt">
+                  Already have an account?
+                  <Link
+                    to="/login"
+                    className="mx-1 label-text-alt link link-hover">
+                    Login here.
                   </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Register"
+                />
               </div>
             </form>
           </div>

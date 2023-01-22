@@ -8,6 +8,7 @@ import Envantory from './components/Envantory/Envantory';
 import Error from './components/Error';
 import Register from './components/Login/Register';
 import ManageEnvantory from './components/Envantory/ManageEnvantory';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const router = createBrowserRouter([
@@ -49,6 +50,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router}></RouterProvider>
+      <ToastContainer />
     </>
   );
 }

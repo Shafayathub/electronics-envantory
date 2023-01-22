@@ -1,7 +1,29 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../firebase/firebase.config';
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(email, password);
+    event.target.reset();
+  };
+  if (error) {
+    return <>{toast(error.message)}</>;
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (user) {
+    return <>{toast(user.user.email)}</>;
+  }
   return (
     <>
       <div className="hero min-h-screen bg-base-200">
@@ -15,13 +37,14 @@ const Login = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -32,12 +55,13 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
                 />
-                <label className="mx-1 label-text-alt">
+                <label className="m-1 label-text-alt">
                   New here?
                   <Link
                     to="/register"

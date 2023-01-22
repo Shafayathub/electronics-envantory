@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import auth from '../firebase/firebase.config';
@@ -12,15 +13,21 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile] = useUpdateProfile(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const displayName = event.target.name.value;
     const photoURL = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(email, password);
-    updateProfile(displayName, photoURL);
+    const success = await sendEmailVerification();
+    if (success) {
+      toast('Check your email to verify');
+    }
+    await updateProfile(displayName, photoURL);
+    await createUserWithEmailAndPassword(email, password);
+
     event.target.reset();
   };
   if (error) {
@@ -60,12 +67,12 @@ const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Photo URL</span>
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  placeholder="Name"
+                  name="photoURL"
+                  placeholder="Photo URL"
                   className="input input-bordered"
                   required
                 />

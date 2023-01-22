@@ -9,6 +9,7 @@ import Error from './components/Error';
 import Register from './components/Login/Register';
 import ManageEnvantory from './components/Envantory/ManageEnvantory';
 import { ToastContainer } from 'react-toastify';
+import RequireAuth from './components/Login/RequireAuth';
 
 function App() {
   const router = createBrowserRouter([
@@ -30,7 +31,11 @@ function App() {
         },
         {
           path: 'manage',
-          element: <ManageEnvantory></ManageEnvantory>,
+          element: (
+            <RequireAuth>
+              <ManageEnvantory></ManageEnvantory>
+            </RequireAuth>
+          ),
         },
         {
           path: 'login',

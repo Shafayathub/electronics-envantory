@@ -41,7 +41,10 @@ const Nav = () => {
               </li>
 
               <li>
-                <Link>Manage Items</Link>
+                <Link to="/manage">Manage Items</Link>
+              </li>
+              <li>
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
@@ -57,6 +60,9 @@ const Nav = () => {
 
             <li>
               <Link to="/manage">Manage Items</Link>
+            </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
             </li>
           </ul>
         </div>

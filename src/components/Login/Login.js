@@ -7,6 +7,7 @@ import auth from '../firebase/firebase.config';
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -70,7 +71,9 @@ const Login = () => {
                   </Link>
                 </label>
                 <label className="label">
-                  <Link href="#" className="label-text-alt link link-hover">
+                  <Link
+                    to="/resetPass"
+                    className="label-text-alt link link-hover">
                     Forgot password?
                   </Link>
                 </label>

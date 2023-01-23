@@ -11,6 +11,8 @@ import ManageEnvantory from './components/Envantory/ManageEnvantory';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/Login/RequireAuth';
 import UpdateProfile from './components/profile/UpdateProfile';
+import ForgotPass from './components/Login/ForgotPass';
+import Blog from './components/Blog';
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +32,7 @@ function App() {
           path: 'envantory',
           element: <Envantory></Envantory>,
         },
+
         {
           path: 'manage',
           element: (
@@ -39,12 +42,20 @@ function App() {
           ),
         },
         {
+          path: 'blogs',
+          element: <Blog></Blog>,
+        },
+        {
           path: 'login',
           element: <Login></Login>,
         },
         {
           path: 'register',
           element: <Register></Register>,
+        },
+        {
+          path: 'resetPass',
+          element: <ForgotPass></ForgotPass>,
         },
         {
           path: 'profile',

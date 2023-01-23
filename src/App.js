@@ -42,7 +42,7 @@ function App() {
           path: 'manage',
           element: (
             <RequireAuth>
-              <ManageEnvantory></ManageEnvantory>
+              <ManageEnvantory></ManageEnvantory>,
             </RequireAuth>
           ),
         },

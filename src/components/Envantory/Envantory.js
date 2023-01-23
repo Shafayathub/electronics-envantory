@@ -11,7 +11,7 @@ const Envantory = () => {
   return (
     <>
       <section className="max-w-screen-xl mx-auto">
-        <h1 className="text-center text-xl font-semibold">Envantroy</h1>
+        <h1 className="text-center text-xl font-semibold">Envantory</h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
           {products.map((product) => (
             <Product key={product._id} product={product}></Product>

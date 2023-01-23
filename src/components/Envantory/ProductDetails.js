@@ -11,7 +11,7 @@ const ProductDetails = () => {
   }, [productID]);
 
   return (
-    <div className="p-5">
+    <div className="p-5 min-h-screen">
       <div className="card w-80 lg:w-96 glass mx-auto">
         <figure>
           <img src={product.picture} alt={product.name} />
@@ -32,7 +32,7 @@ const ProductDetails = () => {
             <div className="badge badge-outline">Electonic Goods</div>
           </div>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Update</button>
+            {/* <button className="btn btn-primary">Update</button> */}
           </div>
         </div>
       </div>

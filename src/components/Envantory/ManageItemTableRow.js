@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ManageItemTableRow = ({ product }) => {
   const { _id, picture, name, price, quantity, suplierName } = product;
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/product')
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+  const handleRemove = (id) => {
+    const proceed = window.confirm('Are you sure?');
+    if (proceed) {
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+          window.location.reload();
+        });
+    }
+  };
   return (
     <tr>
       <td>
@@ -24,7 +46,11 @@ const ManageItemTableRow = ({ product }) => {
       </td>
       <td>{suplierName}</td>
       <th>
-        <button className="btn btn-ghost btn-xs text-red-600">X</button>
+        <button
+          onClick={() => handleRemove(_id)}
+          className="btn btn-ghost btn-xs text-red-600">
+          X
+        </button>
       </th>
     </tr>
   );

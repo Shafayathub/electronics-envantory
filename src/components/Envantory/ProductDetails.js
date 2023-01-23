@@ -14,20 +14,20 @@ const ProductDetails = () => {
     <div className="p-5 min-h-screen">
       <div className="card w-80 lg:w-96 glass mx-auto">
         <figure>
-          <img src={product.picture} alt={product.name} />
+          <img src={product?.picture} alt={product?.name} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
-            {product.name}
+            {product?.name}
             <div className="badge badge-secondary">NEW</div>
           </h2>
-          <h3 className="card-title">Price: ${product.price}</h3>
-          <h4>Quantity: {product.quantity}</h4>
+          <h3 className="card-title">Price: ${product?.price}</h3>
+          <h4>Quantity: {product?.quantity}</h4>
 
-          <p>{product.about}</p>
+          <p>{product?.about}</p>
           <div className="card-actions justify-start">
             <div className="badge badge-outline">
-              Suplier: {product.suplierName}
+              Suplier: {product?.suplierName}
             </div>
             <div className="badge badge-outline">Electonic Goods</div>
           </div>

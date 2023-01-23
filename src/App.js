@@ -13,6 +13,7 @@ import RequireAuth from './components/Login/RequireAuth';
 import UpdateProfile from './components/profile/UpdateProfile';
 import ForgotPass from './components/Login/ForgotPass';
 import Blog from './components/Blog';
+import ProductDetails from './components/Envantory/ProductDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +32,10 @@ function App() {
         {
           path: 'envantory',
           element: <Envantory></Envantory>,
+        },
+        {
+          path: '/product/:productID',
+          element: <ProductDetails></ProductDetails>,
         },
 
         {

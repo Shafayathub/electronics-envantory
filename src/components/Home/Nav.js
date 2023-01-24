@@ -58,9 +58,11 @@ const Nav = () => {
               <Link to="/envantory">Envantory</Link>
             </li>
 
-            <li>
-              <Link to="/manage">Manage Items</Link>
-            </li>
+            {user?.uid && (
+              <li>
+                <Link to="/manage">Manage Items</Link>
+              </li>
+            )}
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>

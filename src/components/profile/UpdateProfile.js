@@ -11,7 +11,6 @@ const UpdateProfile = () => {
     const photoURL = event.target.photoURL.value;
     updateProfile({ displayName, photoURL });
     event.target.reset();
-
     toast('Profile updated. Reload your site.');
   };
   if (updating) {

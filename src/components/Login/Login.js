@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase/firebase.config';
+import Social from './Social';
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -83,6 +84,7 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <Social></Social>
           </div>
         </div>
       </div>

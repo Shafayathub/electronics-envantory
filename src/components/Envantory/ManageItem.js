@@ -7,7 +7,7 @@ const ManageItem = () => {
     fetch('http://localhost:5000/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
   return (
     <div>
       <div className="overflow-x-scroll w-80 md:w-full lg:w-full">

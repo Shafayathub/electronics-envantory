@@ -20,7 +20,6 @@ const ManageItemTableRow = ({ product }) => {
           console.log(data);
           const remaining = products.filter((product) => product._id !== id);
           setProducts(remaining);
-          window.location.reload();
         });
     }
   };

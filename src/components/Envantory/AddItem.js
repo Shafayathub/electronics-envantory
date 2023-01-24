@@ -2,6 +2,7 @@ import React from 'react';
 
 const AddItem = () => {
   const handleAddItem = (event) => {
+    event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const picture = form.picture.value;
@@ -18,6 +19,7 @@ const AddItem = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    event.target.reset();
   };
   return (
     <div className="flex justify-center items-center">

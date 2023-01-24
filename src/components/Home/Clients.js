@@ -51,7 +51,27 @@ const Clients = () => {
               </td>
               <td>Laptop</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <label htmlFor="my-modal-3" className="btn">
+                  Details
+                </label>
+
+                {/* Put this part before </body> tag */}
+                <input
+                  type="checkbox"
+                  id="my-modal-3"
+                  className="modal-toggle"
+                />
+                <div className="modal">
+                  <div className="modal-box relative">
+                    <label
+                      htmlFor="my-modal-3"
+                      className="btn btn-sm btn-circle absolute right-2 top-2">
+                      ✕
+                    </label>
+                    <h3 className="text-lg font-bold">Email: client@ee.com</h3>
+                    <p className="py-4">Mobile: +1665965959</p>
+                  </div>
+                </div>
               </th>
             </tr>
 
@@ -86,7 +106,27 @@ const Clients = () => {
               </td>
               <td>Microchip</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <label htmlFor="my-modal-3" className="btn">
+                  Details
+                </label>
+
+                {/* Put this part before </body> tag */}
+                <input
+                  type="checkbox"
+                  id="my-modal-3"
+                  className="modal-toggle"
+                />
+                <div className="modal">
+                  <div className="modal-box relative">
+                    <label
+                      htmlFor="my-modal-3"
+                      className="btn btn-sm btn-circle absolute right-2 top-2">
+                      ✕
+                    </label>
+                    <h3 className="text-lg font-bold">Email: client@ee.com</h3>
+                    <p className="py-4">Mobile: +1665965959</p>
+                  </div>
+                </div>
               </th>
             </tr>
 
@@ -121,7 +161,27 @@ const Clients = () => {
               </td>
               <td>Drones</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <label htmlFor="my-modal-3" className="btn">
+                  Details
+                </label>
+
+                {/* Put this part before </body> tag */}
+                <input
+                  type="checkbox"
+                  id="my-modal-3"
+                  className="modal-toggle"
+                />
+                <div className="modal">
+                  <div className="modal-box relative">
+                    <label
+                      htmlFor="my-modal-3"
+                      className="btn btn-sm btn-circle absolute right-2 top-2">
+                      ✕
+                    </label>
+                    <h3 className="text-lg font-bold">Email: client@ee.com</h3>
+                    <p className="py-4">Mobile: +1665965959</p>
+                  </div>
+                </div>
               </th>
             </tr>
 
@@ -156,7 +216,27 @@ const Clients = () => {
               </td>
               <td>VR</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <label htmlFor="my-modal-3" className="btn">
+                  Details
+                </label>
+
+                {/* Put this part before </body> tag */}
+                <input
+                  type="checkbox"
+                  id="my-modal-3"
+                  className="modal-toggle"
+                />
+                <div className="modal">
+                  <div className="modal-box relative">
+                    <label
+                      htmlFor="my-modal-3"
+                      className="btn btn-sm btn-circle absolute right-2 top-2">
+                      ✕
+                    </label>
+                    <h3 className="text-lg font-bold">Email: client@ee.com</h3>
+                    <p className="py-4">Mobile: +1665965959</p>
+                  </div>
+                </div>
               </th>
             </tr>
           </tbody>

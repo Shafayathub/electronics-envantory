@@ -22,7 +22,7 @@ const AddItem = () => {
     event.target.reset();
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex flex-wrap justify-center items-center">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={handleAddItem} className="card-body">
           <h2 className="card-title">Add Item</h2>

@@ -1,15 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
   const { productID } = useParams();
   const [product, setProduct] = useState([]);
+  const { quantity } = product;
   useEffect(() => {
     fetch(`http://localhost:5000/product/${productID}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, [productID]);
+  }, [productID, quantity]);
 
+  const handleDelivered = (product) => {
+    const newQuantity = product.quantity - 1;
+    const delivered = { ...product, quantity: newQuantity };
+    const id = product._id;
+    const url = `http://localhost:5000/product/${id}`;
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(delivered),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+        toast('Delivered successfully');
+      });
+    setProduct(delivered);
+  };
   return (
     <div className="p-5 min-h-screen">
       <div className="card w-80 lg:w-96 glass mx-auto">
@@ -32,7 +53,11 @@ const ProductDetails = () => {
             <div className="badge badge-outline">Electonic Goods</div>
           </div>
           <div className="card-actions justify-end">
-            {/* <button className="btn btn-primary">Update</button> */}
+            <button
+              onClick={() => handleDelivered(product)}
+              className="btn btn-primary">
+              Delivered
+            </button>
           </div>
         </div>
       </div>

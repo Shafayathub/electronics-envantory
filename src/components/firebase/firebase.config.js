@@ -7,11 +7,11 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyDYQ5KcemNmP5IZWfBT5DsCa90Ojyp5aQk',
-  authDomain: 'electronic-envantory.firebaseapp.com',
-  projectId: 'electronic-envantory',
-  storageBucket: 'electronic-envantory.appspot.com',
-  messagingSenderId: '564864657561',
-  appId: '1:564864657561:web:91bf5be64c8bf66326f008',
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
 };
 
 // Initialize Firebase

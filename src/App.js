@@ -35,7 +35,11 @@ function App() {
         },
         {
           path: '/product/:productID',
-          element: <ProductDetails></ProductDetails>,
+          element: (
+            <RequireAuth>
+              <ProductDetails></ProductDetails>
+            </RequireAuth>
+          ),
         },
 
         {

@@ -4,14 +4,14 @@ const ManageItemTableRow = ({ product }) => {
   const { _id, picture, name, price, quantity, suplierName } = product;
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/product')
+    fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
   const handleRemove = (id) => {
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://server-electronic-envantory.onrender.com/product/${id}`;
       fetch(url, {
         method: 'DELETE',
       })

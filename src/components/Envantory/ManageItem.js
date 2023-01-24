@@ -4,7 +4,7 @@ import ManageItemTableRow from './ManageItemTableRow';
 const ManageItem = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/product')
+    fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);

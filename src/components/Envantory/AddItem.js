@@ -11,7 +11,7 @@ const AddItem = () => {
     const suplierName = form.suplierName.value;
     const about = form.about.value;
     const newProduct = { name, picture, price, quantity, suplierName, about };
-    const url = 'http://localhost:5000/product';
+    const url = 'https://server-electronic-envantory.onrender.com/product';
     fetch(url, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },

@@ -6,8 +6,8 @@ const AddItem = () => {
     const form = event.target;
     const name = form.name.value;
     const picture = form.picture.value;
-    const price = form.price.value;
-    const quantity = form.quantity.value;
+    const price = parseFloat(form.price.value);
+    const quantity = parseInt(form.quantity.value);
     const suplierName = form.suplierName.value;
     const about = form.about.value;
     const newProduct = { name, picture, price, quantity, suplierName, about };
@@ -56,7 +56,7 @@ const AddItem = () => {
               <span className="label-text">Price</span>
             </label>
             <input
-              type="number"
+              type="text"
               name="price"
               placeholder="product price"
               className="input input-bordered"

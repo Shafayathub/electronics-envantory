@@ -6,7 +6,7 @@ const Envantory = () => {
   useEffect(() => {
     fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.slice(0, 6)));
   }, []);
   return (
     <>

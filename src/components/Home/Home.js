@@ -10,8 +10,8 @@ const Home = () => {
       <main className="max-w-screen-xl mx-auto">
         <Banner></Banner>
         <Envantory></Envantory>
-        <Sales></Sales>
         <Clients></Clients>
+        <Sales></Sales>
       </main>
     </>
   );

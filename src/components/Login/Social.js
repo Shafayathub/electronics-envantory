@@ -19,6 +19,7 @@ const Social = () => {
   }
   return (
     <div className="flex justify-center px-8 pb-5">
+      {error && toast(error?.message)}
       <button
         onClick={() => signInWithGoogle()}
         className="btn btn-outline w-full">
@@ -28,7 +29,6 @@ const Social = () => {
           alt="social login"
         />
       </button>
-      {error && toast(error?.message)}
     </div>
   );
 };

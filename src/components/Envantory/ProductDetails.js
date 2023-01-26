@@ -7,7 +7,9 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const { quantity } = product;
   useEffect(() => {
-    fetch(`https://electronic-envantory-server.vercel.app/product/${productID}`)
+    fetch(
+      `https://server-electronic-envantory.onrender.com/product/${productID}`
+    )
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productID, quantity]);
@@ -16,7 +18,7 @@ const ProductDetails = () => {
     const newQuantity = product.quantity - 1;
     const delivered = { ...product, quantity: newQuantity };
     const id = product._id;
-    const url = `https://electronic-envantory-server.vercel.app/product/${id}`;
+    const url = `https://server-electronic-envantory.onrender.com/product/${id}`;
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -37,7 +39,7 @@ const ProductDetails = () => {
     const newQuantity = product.quantity + parseInt(number);
     const updatedStock = { ...product, quantity: newQuantity };
     const id = product._id;
-    const url = `https://electronic-envantory-server.vercel.app/product/${id}`;
+    const url = `https://server-electronic-envantory.onrender.com/product/${id}`;
     fetch(url, {
       method: 'PUT',
       headers: {

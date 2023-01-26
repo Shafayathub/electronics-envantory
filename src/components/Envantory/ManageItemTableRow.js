@@ -4,14 +4,14 @@ const ManageItemTableRow = ({ product }) => {
   const { _id, picture, name, price, quantity, suplierName } = product;
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('https://electronic-envantory-server.vercel.app/product')
+    fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
   const handleRemove = (id) => {
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
-      const url = `https://electronic-envantory-server.vercel.app/product/${id}`;
+      const url = `https://server-electronic-envantory.onrender.com/product/${id}`;
       fetch(url, {
         method: 'DELETE',
       })

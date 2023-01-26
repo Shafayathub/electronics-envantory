@@ -4,7 +4,7 @@ import ManageItemTableRow from './ManageItemTableRow';
 const ManageItem = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('https://electronic-envantory-server.vercel.app/product')
+    fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);

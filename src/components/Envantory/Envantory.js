@@ -4,7 +4,7 @@ import Product from './Product';
 const Envantory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('https://electronic-envantory-server.vercel.app/product')
+    fetch('https://server-electronic-envantory.onrender.com/product')
       .then((res) => res.json())
       .then((data) => setProducts(data.slice(0, 6)));
   }, []);

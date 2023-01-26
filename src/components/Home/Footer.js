@@ -19,7 +19,7 @@ const Footer = () => {
             rel="noreferrer">
             <img
               className="w-6"
-              src="https://i.ibb.co/q7NCpfj/174857.png"
+              src="https://farm66.staticflickr.com/65535/52647338087_7178752269_m.jpg"
               alt="LinkedIn"
             />
           </a>
@@ -29,7 +29,7 @@ const Footer = () => {
             rel="noreferrer">
             <img
               className="w-6"
-              src="https://i.ibb.co/vmQmBfn/fb-icon-325x325.png"
+              src="https://farm66.staticflickr.com/65535/52647338077_1251b1af0f_m.jpg"
               alt="Facebook_Id"
             />
           </a>

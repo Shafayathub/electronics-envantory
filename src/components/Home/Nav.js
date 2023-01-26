@@ -71,7 +71,9 @@ const Nav = () => {
         <div className="navbar-end">
           {user?.emailVerified ? (
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost rounded-full">
+              <label
+                tabIndex={0}
+                className="btn btn-ghost h-14 w-14 rounded-full">
                 <div className="avatar online">
                   <div className="w-12 rounded-full">
                     <img
@@ -88,7 +90,7 @@ const Nav = () => {
               <ul
                 tabIndex={0}
                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                <li className="text-center">
+                <li className="btn btn-primary">
                   <Link to="/profile">Update Profile</Link>
                 </li>
                 <li className="text-center">{user?.displayName}</li>

@@ -25,7 +25,7 @@ const Social = () => {
         className="btn btn-outline w-full">
         <img
           className="w-12 h-12 rounded-xl p-2"
-          src="https://i.ibb.co/dWm0n5h/google.png"
+          src="https://farm66.staticflickr.com/65535/52647336757_4ddaa40d9f_m.jpg"
           alt="social login"
         />
       </button>

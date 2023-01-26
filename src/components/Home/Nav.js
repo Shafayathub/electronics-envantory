@@ -59,9 +59,14 @@ const Nav = () => {
             </li>
 
             {user?.uid && (
-              <li>
-                <Link to="/manage">Manage Items</Link>
-              </li>
+              <>
+                <li>
+                  <Link to="/manage">Manage Items</Link>
+                </li>
+                <li>
+                  <Link to="/myProduct">My Product</Link>
+                </li>
+              </>
             )}
             <li>
               <Link to="/blogs">Blogs</Link>

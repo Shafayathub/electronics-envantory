@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase/firebase.config';
 
 const AddItem = () => {
+  const [user] = useAuthState(auth);
   const handleAddItem = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -10,9 +13,25 @@ const AddItem = () => {
     const quantity = parseInt(form.quantity.value);
     const suplierName = form.suplierName.value;
     const about = form.about.value;
-    const newProduct = { name, picture, price, quantity, suplierName, about };
+    const newProduct = {
+      name,
+      picture,
+      price,
+      quantity,
+      suplierName,
+      about,
+      email: user.email,
+    };
     const url = 'https://server-electronic-envantory.onrender.com/product';
     fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    const url2 = 'https://server-electronic-envantory.onrender.com/myProduct';
+    fetch(url2, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newProduct),

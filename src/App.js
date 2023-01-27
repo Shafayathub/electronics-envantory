@@ -14,6 +14,7 @@ import UpdateProfile from './components/profile/UpdateProfile';
 import ForgotPass from './components/Login/ForgotPass';
 import Blog from './components/Blog';
 import ProductDetails from './components/Envantory/ProductDetails';
+import MyProductDetails from './components/MyProduct/MyProductDetails';
 import MyProduct from './components/MyProduct/MyProduct';
 
 function App() {
@@ -56,6 +57,14 @@ function App() {
           element: (
             <RequireAuth>
               <MyProduct></MyProduct>,
+            </RequireAuth>
+          ),
+        },
+        {
+          path: '/myProduct/:myProductID',
+          element: (
+            <RequireAuth>
+              <MyProductDetails></MyProductDetails>
             </RequireAuth>
           ),
         },

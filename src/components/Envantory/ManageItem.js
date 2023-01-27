@@ -9,7 +9,7 @@ const ManageItem = () => {
       .then((data) => setProducts(data));
   }, [products]);
   return (
-    <div>
+    <section>
       <div className="overflow-x-scroll w-80 md:w-full lg:w-full">
         <table className="table w-full">
           {/* <!-- head --> */}
@@ -39,7 +39,7 @@ const ManageItem = () => {
           </tfoot>
         </table>
       </div>
-    </div>
+    </section>
   );
 };
 

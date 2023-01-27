@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,12 +11,17 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
-    event.target.reset();
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      'https://server-electronic-envantory.onrender.com/tokenLogin',
+      email
+    );
+    localStorage.setItem('accessToken', data.accesToken);
+    navigate('/');
   };
   if (loading) {
     return (
@@ -25,7 +31,7 @@ const Login = () => {
     );
   }
   if (user) {
-    return navigate('/');
+    // navigate('/');
   }
   return (
     <>

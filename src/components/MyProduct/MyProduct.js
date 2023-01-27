@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase/firebase.config';
@@ -9,9 +10,13 @@ const MyProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const url = `https://server-electronic-envantory.onrender.com/myProduct?email=${email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    axios
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
+      .then((res) => setProducts(res.data));
   }, [email]);
   return (
     <section className="max-w-screen-xl flex justify-center mx-auto">

@@ -58,7 +58,7 @@ const Nav = () => {
               <Link to="/envantory">Envantory</Link>
             </li>
 
-            {user?.uid && (
+            {user?.emailVerified && (
               <>
                 <li>
                   <Link to="/manage">Manage Items</Link>
@@ -83,9 +83,8 @@ const Nav = () => {
                   <div className="w-12 rounded-full">
                     <img
                       src={
-                        user?.photoURL
-                          ? user.photoURL
-                          : 'https://i.ibb.co/K9dVbKs/image-processing20210613-2832-x5fecm.png'
+                        user?.photoURL ||
+                        'https://i.ibb.co/K9dVbKs/image-processing20210613-2832-x5fecm.png'
                       }
                       alt=""
                     />
@@ -94,12 +93,14 @@ const Nav = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                className="menu dropdown-content shadow bg-base-100 rounded-box min-w-60 mt-4">
                 <li className="btn btn-primary">
                   <Link to="/profile">Update Profile</Link>
                 </li>
-                <li className="text-center">{user?.displayName}</li>
-                <li className="text-center">{user?.email}</li>
+                <li className="text-center p-2">
+                  {user?.displayName || 'Display Name'}
+                </li>
+                <li className="text-center p-2">{user?.email}</li>
                 <li>
                   <button className="btn" onClick={logout}>
                     Log out

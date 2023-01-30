@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import axiosPrivate from '../../api/axiosPrivate';
 import auth from '../firebase/firebase.config';
 import MyProductRow from './MyProductRow';
 
@@ -10,13 +10,11 @@ const MyProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const url = `https://server-electronic-envantory.onrender.com/myProduct?email=${email}`;
-    axios
-      .get(url, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-      })
-      .then((res) => setProducts(res.data));
+    try {
+      axiosPrivate.get(url).then((res) => setProducts(res.data));
+    } catch (error) {
+      console.log(error);
+    }
   }, [email]);
   return (
     <section className="max-w-screen-xl flex justify-center mx-auto">

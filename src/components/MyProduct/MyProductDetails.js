@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
+import axiosPrivate from '../../api/axiosPrivate';
 import auth from '../firebase/firebase.config';
 
 const MyProductDetails = () => {
@@ -19,9 +20,11 @@ const MyProductDetails = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const url = `https://server-electronic-envantory.onrender.com/myProduct?email=${email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    try {
+      axiosPrivate.get(url).then((res) => setProducts(res.data));
+    } catch (error) {
+      console.log(error);
+    }
   }, [email]);
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you sure?');

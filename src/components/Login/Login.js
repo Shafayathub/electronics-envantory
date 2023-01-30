@@ -18,7 +18,9 @@ const Login = () => {
     await signInWithEmailAndPassword(email, password);
     const { data } = await axios.post(
       'https://server-electronic-envantory.onrender.com/tokenLogin',
-      { email }
+      {
+        email,
+      }
     );
     localStorage.setItem('accessToken', data);
     navigate('/');
